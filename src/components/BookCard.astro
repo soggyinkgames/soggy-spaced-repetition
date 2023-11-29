@@ -1,0 +1,26 @@
+---
+import { type CollectionEntry } from "astro:content";
+import { Image } from 'astro:assets';
+
+type Props = {
+  book: CollectionEntry<"books">;
+};
+
+const { book } = Astro.props;
+---
+
+<!-- present a card list of all notes on this book -->
+<article>
+    <a href={`/books/${book.slug}`}>
+        <Image
+            src={book.data.image}
+            width={600}
+            height={600/1.5}
+            alt={book.data.title}
+            class="rounded-2xl shadow-xl mb-4 aspect-thumbnail object-cover"
+        />
+    </a>
+    <a href={`/books/${book.slug}`} class="text-4xl text-zinc-900 font-semibold inline-block">
+        <h2>{book.data.title}</h2>
+    </a>
+</article>

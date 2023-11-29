@@ -1,0 +1,20 @@
+---
+
+import Layout from "../layouts/Layout.astro";
+import H1 from "../components/H1.astro";
+import Main from "../components/Main.astro";
+import { getCollection } from "astro:content";
+
+import BookList from "../components/BookList.astro";
+
+
+const books = await getCollection("books");
+console.log(books);
+---
+
+<Layout title="Welcome to spaced repetition by SOGGY INK GAMES">
+  <Main>
+    <H1 text="Your Books" />
+        <BookList books={books}/>
+  </Main>
+</Layout>

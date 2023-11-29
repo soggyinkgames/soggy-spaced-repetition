@@ -1,0 +1,55 @@
+---
+import { Image } from 'astro:assets';
+import Layout from "../../layouts/Layout.astro";
+import H1 from "../../components/H1.astro";
+import Main from "../../components/Main.astro";
+
+import {getCollection, CollectionEntry} from "astro:content";
+
+export const getStaticPaths = async () => {
+    const books = await getCollection("books");
+    const paths = books.map(book => {
+        return {
+            params: {
+                slug: book.slug
+            },
+            props: {
+                book
+            }
+        }
+    })
+    return paths;
+}
+
+type Props = {
+    book: CollectionEntry<"books">
+}
+
+const {book} = Astro.props;
+const {Content} = await book.render();
+---
+
+<Layout title={book.data.title}>
+    <Main>
+        <H1 text={book.data.title} />
+        <!-- add all nots for that book here -->
+        <ul>
+            <li>note 1</li>
+            <li>note 2</li>
+            <li>note 3</li>
+        </ul>
+
+        <Image
+            src={book.data.image}
+            alt={book.data.title}
+            width={1024}
+            height={1024/1.5}
+            format="webp"
+            class="rounded-2xl shadow-xl mb-4 aspect-thumbnail object-cover"
+        />
+
+        <div class="prose prose-2xl overflow-visible relative mb-20">
+            <Content />
+        </div>
+    </Main>
+</Layout>
