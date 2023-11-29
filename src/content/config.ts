@@ -20,6 +20,6 @@ const tagsCollection = defineCollection({
 });
 
 export const collections = {
-    books: booksCollection,
-    tags: tagsCollection,
+    'books': booksCollection,
+    'tags': tagsCollection,
 };

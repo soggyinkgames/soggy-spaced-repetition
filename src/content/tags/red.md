@@ -1,6 +1,6 @@
 ---
-red: michael-scott
-blue: lalalla
-green: lalallala
-yelow: hey there
+red: "michael scott"
+blue: "lalalla"
+green: "lalallala"
+yellow: "hey there"
 ---

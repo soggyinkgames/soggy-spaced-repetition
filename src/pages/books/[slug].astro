@@ -4,7 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 import H1 from "../../components/H1.astro";
 import Main from "../../components/Main.astro";
 
-import {getCollection, CollectionEntry} from "astro:content";
+import { getCollection, CollectionEntry } from "astro:content";
 
 export const getStaticPaths = async () => {
     const books = await getCollection("books");
@@ -22,7 +22,7 @@ export const getStaticPaths = async () => {
 }
 
 type Props = {
-    book: CollectionEntry<"books">
+    book: CollectionEntry<"books">;
 }
 
 const {book} = Astro.props;
