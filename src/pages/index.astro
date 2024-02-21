@@ -2,20 +2,85 @@
 import Layout from "../layouts/Layout.astro";
 import H1 from "../components/H1.astro";
 import Main from "../components/Main.astro";
-import Testing from "../components/Testing.astro";
+import BrainCardDeck from "../components/BrainCardDeck.astro";
+// import { getCollection } from "astro:content";
 
-export const prerender = true;
+// const response = await fetch("https://randomuser.me/api/");
+// const data = await response.json();
+// const brainCards = data.results[0];
+// console.log("brainCards======>>>>>", brainCards);
 ---
 
 <Layout title="Welcome to spaced repetition by SOGGY INK GAMES">
   <Main>
     <H1 text="Your Notes" />
 
-    <Testing
-      backgroundImage="https://res.cloudinary.com/soggy-ink-games/image/upload/v1708528565/soggy-ink-brain_dggi8h.jpg"
-      imageWidth="300"
-      imageHeight="300"
-      cardText="Ian is my name Yes you can Yes you can Yes you can Yes you can Yes you can Yes you can Yes you can Yes you can Yes you can Yes you can Yes you can Yes you can Yes you can Yes you can Yes you can Yes you can Yes you can Yes you can Yes you can Yes you can Yes you can Yes you can Yes you can Yes you can Yes you can Yes you can Yes you can Yes you can Yes you can Yes you can Yes you can Yes you can "
+    <BrainCardDeck
+      brainCards={[
+        {
+          backgroundImage:
+            "https://res.cloudinary.com/soggy-ink-games/image/upload/v1708528565/soggy-ink-brain_dggi8h.jpg",
+          imageWidth: "300",
+          imageHeight: "300",
+          cardText: "SOGGY INK GAMES",
+        },
+        {
+          backgroundImage:
+            "https://res.cloudinary.com/soggy-ink-games/image/upload/v1708528565/soggy-ink-brain_dggi8h.jpg",
+          imageWidth: "300",
+          imageHeight: "300",
+          cardText: "Yes you fucking can!",
+        },
+        {
+          backgroundImage:
+            "https://res.cloudinary.com/soggy-ink-games/image/upload/v1708528565/soggy-ink-brain_dggi8h.jpg",
+          imageWidth: "300",
+          imageHeight: "300",
+          cardText: "you're going to memorize sooo much stuff",
+        },
+        {
+          backgroundImage:
+            "https://res.cloudinary.com/soggy-ink-games/image/upload/v1708528565/soggy-ink-brain_dggi8h.jpg",
+          imageWidth: "300",
+          imageHeight: "300",
+          cardText: "SOGGY INK GAMES",
+        },
+        {
+          backgroundImage:
+            "https://res.cloudinary.com/soggy-ink-games/image/upload/v1708528565/soggy-ink-brain_dggi8h.jpg",
+          imageWidth: "300",
+          imageHeight: "300",
+          cardText: "Yes you fucking can!",
+        },
+        {
+          backgroundImage:
+            "https://res.cloudinary.com/soggy-ink-games/image/upload/v1708528565/soggy-ink-brain_dggi8h.jpg",
+          imageWidth: "300",
+          imageHeight: "300",
+          cardText: "you're going to memorize sooo much stuff",
+        },
+        {
+          backgroundImage:
+            "https://res.cloudinary.com/soggy-ink-games/image/upload/v1708528565/soggy-ink-brain_dggi8h.jpg",
+          imageWidth: "300",
+          imageHeight: "300",
+          cardText: "SOGGY INK GAMES",
+        },
+        {
+          backgroundImage:
+            "https://res.cloudinary.com/soggy-ink-games/image/upload/v1708528565/soggy-ink-brain_dggi8h.jpg",
+          imageWidth: "300",
+          imageHeight: "300",
+          cardText: "Yes you fucking can!",
+        },
+        {
+          backgroundImage:
+            "https://res.cloudinary.com/soggy-ink-games/image/upload/v1708528565/soggy-ink-brain_dggi8h.jpg",
+          imageWidth: "300",
+          imageHeight: "300",
+          cardText: "you're going to memorize sooo much stuff",
+        },
+      ]}
     />
   </Main>
 </Layout>

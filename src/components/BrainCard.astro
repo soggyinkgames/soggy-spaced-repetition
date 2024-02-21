@@ -1,0 +1,143 @@
+---
+export type Props = {
+  backgroundImage: string;
+  imageWidth: string;
+  imageHeight: string;
+  cardText: string;
+};
+
+const { backgroundImage, imageWidth, imageHeight, cardText } = Astro.props;
+---
+
+<!-- present a card list of all notes on this book -->
+<li>
+  <img src={backgroundImage} width={imageWidth} height={imageHeight} alt="…" />
+  <p class="card-text">{cardText}</p>
+  <!-- <div class="fadeout"></div> -->
+</li>
+
+<style>
+  .card-text {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    text-align: center;
+    z-index: 2;
+    color: white;
+    text-wrap: wrap;
+    overflow-y: scroll;
+    padding: 2em 1em 0 1em;
+
+    animation: linear move-text both;
+    animation-timeline: --li-in-and-out-of-view;
+
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+  }
+  .card-text::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+
+  .card-text p {
+    font-size: 18px; /* Adjust font size as needed */
+    margin: 0;
+    /* padding: 10px; Add padding to prevent text from sticking to edges */
+    max-width: 90%; /* Limit maximum width of the text */
+  }
+
+  /* Keyframes for text movement */
+  @keyframes move-text {
+    0% {
+      transform: translateX(-100%) rotateY(-45deg);
+    }
+    35% {
+      transform: translateX(0) rotateY(-45deg);
+    }
+    50% {
+      transform: rotateY(0deg) translateZ(1em) scale(1.5);
+    }
+    65% {
+      transform: translateX(0) rotateY(45deg);
+    }
+    100% {
+      transform: translateX(100%) rotateY(45deg);
+    }
+  }
+
+  li {
+    display: inline-block;
+    margin-top: 200px;
+    margin-bottom: 400px;
+    width: 300px;
+    aspect-ratio: 1;
+  }
+
+  li {
+    scroll-snap-align: center;
+  }
+
+  li img {
+    width: 70%;
+    height: auto;
+
+    -webkit-box-reflect: below 0.5em
+      linear-gradient(rgb(0 0 0 / 0), rgb(0 0 0 / 0.25));
+  }
+
+  li {
+    /* Track this element as it intersects the scrollport */
+    view-timeline-name: --li-in-and-out-of-view;
+    view-timeline-axis: inline;
+  }
+
+  @keyframes adjust-z-index {
+    0% {
+      z-index: 1;
+    }
+    50% {
+      z-index: 100; /* When at the center, be on top */
+    }
+    100% {
+      z-index: 1;
+    }
+  }
+
+  @keyframes rotate-cover {
+    0% {
+      transform: translateX(-100%) rotateY(-45deg);
+    }
+    35% {
+      transform: translateX(0) rotateY(-45deg);
+    }
+    50% {
+      transform: rotateY(0deg) translateZ(1em) scale(1.5);
+    }
+    65% {
+      transform: translateX(0) rotateY(45deg);
+    }
+    100% {
+      transform: translateX(100%) rotateY(45deg);
+    }
+  }
+
+  li {
+    /* Link an animation to the established view-timeline and have it run during the contain phase */
+    animation: linear adjust-z-index both;
+    animation-timeline: --li-in-and-out-of-view;
+
+    /* Make the 3D stuff work… */
+    perspective: 40em;
+  }
+
+  li > img {
+    /* Link an animation to the established view-timeline (of the parent li) and have it run during the contain phase */
+    animation: linear rotate-cover both;
+    animation-timeline: --li-in-and-out-of-view;
+  }
+</style>
