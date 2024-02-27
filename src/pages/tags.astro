@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import H1 from "../components/H1.astro";
 import Main from "../components/Main.astro";
 import { getCollection } from "astro:content";
+import APICardTest from "../components/APICardTest";
 
 const tags = await getCollection("tags");
 console.log(tags);
@@ -11,5 +12,6 @@ console.log(tags);
 <Layout title="Welcome to spaced repetition by SOGGY INK GAMES">
   <Main>
     <H1 text="Your Tags" />
+    <APICardTest client:load />
   </Main>
 </Layout>
