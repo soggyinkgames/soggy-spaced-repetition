@@ -6,16 +6,19 @@ const booksCollection = defineCollection({
         author: z.string(),
         date: z.string(),
         image: image(),
-        title: z.string(),
+        title: z.string().max(50, {
+            message: "You must keep the name to 50 characters or less",
+        }),
     }),
 });
 
 const tagsCollection = defineCollection({
     schema: z.object({
-        red: z.string(),
-        blue: z.string(),
-        green: z.string(),
-        yellow: z.string(),
+        selected: z.string(),
+        color: z.string(),
+        location: z.string(),
+        annotation: z.string(),
+        book: z.string(),
     }),
 });
 
