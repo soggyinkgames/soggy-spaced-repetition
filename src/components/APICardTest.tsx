@@ -27,14 +27,14 @@ const APICardTest = () => {
         console.log("Data====>>>", data)
     }
     return <div>
-        <p>Get more items</p>
+        <p>Get more items, these are coming from tags getCollections</p>
         {tags.length > 0 && tags.map((tagsData: Data) =>
             <div key={tagsData.id}>
                 <TailWindscard title={tagsData.data.selected} text={tagsData.data.annotation} image={tagsData.data.color == "yelow" ? "https://res.cloudinary.com/soggy-ink-games/image/upload/v1708528565/soggy-ink-brain_dggi8h.jpg" : "https://res.cloudinary.com/soggy-ink-games/image/upload/v1708528565/soggy-ink-brain_dggi8h.jpg"} ></TailWindscard>
             </div>
 
         )}
-        <button onClick={handleClick} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Get it</button>
+        <button onClick={handleClick} className="bg-accent hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">Get it</button>
     </div >;
 };
 export default APICardTest;
