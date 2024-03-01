@@ -1,7 +1,7 @@
 ---
-selected: "hormones"
+selected: "endocrinology"
 color: "yellow"
-location: "page 7"
-annotation: "come from kidneys or pituitary glands or testicles to name a few"
+location: "page 8"
+annotation: "the study of hormones"
 book: "aroused"
 ---
