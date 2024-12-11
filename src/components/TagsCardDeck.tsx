@@ -17,7 +17,7 @@ type Data = {
 };
 
 
-const APICardTest = () => {
+const TagsCardDeck = () => {
     const [tags, setTags] = useState([])
 
     const handleClick = async () => {
@@ -27,14 +27,15 @@ const APICardTest = () => {
         console.log("Data====>>>", data)
     }
     return <div>
-        <p>Get more items, these are coming from tags getCollections</p>
-        {tags.length > 0 && tags.map((tagsData: Data) =>
-            <div key={tagsData.id}>
-                <TailWindscard title={tagsData.data.selected} text={tagsData.data.annotation} image={tagsData.data.color == "yelow" ? "https://res.cloudinary.com/soggy-ink-games/image/upload/v1708528565/soggy-ink-brain_dggi8h.jpg" : "https://res.cloudinary.com/soggy-ink-games/image/upload/v1708528565/soggy-ink-brain_dggi8h.jpg"} ></TailWindscard>
-            </div>
+        {/* <p>Get more items, these are coming from tags getCollections</p> */}
 
-        )}
+        {tags.length > 0 && tags.map((tagsData: Data) => (
+
+            <TailWindscard title={tagsData.data.selected} text={tagsData.data.annotation} image={tagsData.data.color == "yelow" ? "https://res.cloudinary.com/soggy-ink-games/image/upload/v1708528565/soggy-ink-brain_dggi8h.jpg" : "https://res.cloudinary.com/soggy-ink-games/image/upload/v1708528565/soggy-ink-brain_dggi8h.jpg"} ></TailWindscard>
+
+        ))}
+
         <button onClick={handleClick} className="bg-accent hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">Get it</button>
     </div >;
 };
-export default APICardTest;
+export default TagsCardDeck;

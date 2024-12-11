@@ -1,3 +1,4 @@
+
 const TailWindscard = (props: { title: string; text: string; image: string; }) => {
     return (
         <a
@@ -13,7 +14,7 @@ const TailWindscard = (props: { title: string; text: string; image: string; }) =
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                     {props.title}
                 </h5>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                <p className={`mb-3 font-normal text-gray-700 dark:text-gray-400`}>
                     {props.text}
                 </p>
             </div>

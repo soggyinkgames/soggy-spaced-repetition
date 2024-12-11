@@ -11,7 +11,13 @@ const { backgroundImage, imageWidth, imageHeight, cardText } = Astro.props;
 
 <!-- present a card list of all notes on this book -->
 <li>
-  <img src={backgroundImage} width={imageWidth} height={imageHeight} alt="…" />
+  <img
+    src={backgroundImage}
+    width={imageWidth}
+    height={imageHeight}
+    alt="…"
+    class="object-cover w-full rounded-lg h-96 md:h-auto md:w-48"
+  />
   <p class="card-text">{cardText}</p>
   <!-- <div class="fadeout"></div> -->
 </li>
@@ -22,8 +28,8 @@ const { backgroundImage, imageWidth, imageHeight, cardText } = Astro.props;
     top: 0%;
     left: 0%;
     transform: translate(-50%, -50%);
-    width: 70%;
-    height: 70%;
+    width: 80%;
+    height: 80%;
     display: flex;
     justify-content: center;
     align-items: top;
@@ -42,6 +48,40 @@ const { backgroundImage, imageWidth, imageHeight, cardText } = Astro.props;
   }
   .card-text::-webkit-scrollbar {
     display: none; /* Safari and Chrome */
+  }
+
+  @media (max-width: 1024px) {
+    .card-text {
+      width: 70%;
+      height: 80%;
+      font-size: 1.1em;
+      margin-left: 62px;
+    }
+  }
+  @media (max-width: 767px) {
+    .card-text {
+      width: 50%;
+      height: 80%;
+      font-size: 0.9em;
+      margin-left: 60px;
+      padding: 2em 1.2em 0 1.2em;
+    }
+  }
+  @media (max-width: 360px) {
+    .card-text {
+      width: 50%;
+      height: 80%;
+      margin-left: 63px;
+      font-size: 0.8em;
+    }
+  }
+  @media (max-width: 280px) {
+    .card-text {
+      width: 40%;
+      height: 80%;
+      margin-left: 86px;
+      font-size: 0.7em;
+    }
   }
 
   .card-text p {
@@ -83,11 +123,42 @@ const { backgroundImage, imageWidth, imageHeight, cardText } = Astro.props;
   }
 
   li img {
-    width: 70%;
-    height: auto;
+    width: 80%;
+    height: 80%;
 
     -webkit-box-reflect: below 0.5em
       linear-gradient(rgb(0 0 0 / 0), rgb(0 0 0 / 0.25));
+  }
+
+  @media (max-width: 1024px) {
+    li img {
+      width: 70%;
+      height: 80%;
+      margin-left: 20%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    li img {
+      width: 50%;
+      height: 80%;
+    }
+  }
+
+  @media (max-width: 360px) {
+    li img {
+      width: 50%;
+      height: 80%;
+      /* margin-left: 30%; */
+    }
+  }
+
+  @media (max-width: 280px) {
+    li img {
+      width: 40%;
+      height: 80%;
+      margin-left: 30%;
+    }
   }
 
   li {

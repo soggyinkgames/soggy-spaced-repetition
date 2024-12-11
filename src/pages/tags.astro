@@ -3,15 +3,15 @@ import Layout from "../layouts/Layout.astro";
 import H1 from "../components/H1.astro";
 import Main from "../components/Main.astro";
 import { getCollection } from "astro:content";
-import APICardTest from "../components/APICardTest";
+import TagsCardDeck from "../components/TagsCardDeck";
 
 const tags = await getCollection("tags");
-console.log(tags);
+console.log("TAGS -------->>>>>", tags);
 ---
 
 <Layout title="Welcome to spaced repetition by SOGGY INK GAMES">
   <Main>
     <H1 text="Your Tags" />
-    <APICardTest client:load />
+    <TagsCardDeck client:load />
   </Main>
 </Layout>

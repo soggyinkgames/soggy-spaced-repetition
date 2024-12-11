@@ -21,9 +21,8 @@ const { brainCards } = Astro.props;
 
 <style>
   .container {
-    width: 80vw;
+    width: 100%;
     max-height: 100%;
-    padding: 100px;
     align-content: safe center;
     background-clip: border-box;
     margin-bottom: 0px;
@@ -34,25 +33,18 @@ const { brainCards } = Astro.props;
     overscroll-behavior-y: contain;
     background-color: #22d3ee;
   }
-
-  /* todo: RETHINK THIS IT LOOKS SHIT AND MOVES DOWN ON SWIPE */
-  /* .fadeout {
-    position: absolute;
-    width: 70%;
-    height: 70%;
-    bottom: 17%;
-    left: 0;
-    right: 4em;
-    height: 5em;
-    transform: translate(-50%, -50%);
-
-    background: -webkit-linear-gradient(
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 1) 100%
-    );
-    animation: linear move-text both;
-    animation-timeline: --li-in-and-out-of-view;
-  } */
+  @media (max-width: 1024px) {
+    .container {
+      padding: 0;
+      max-height: 100%;
+    }
+  }
+  @media (max-width: 767px) {
+    .container {
+      padding: 0;
+      max-height: 100%;
+    }
+  }
 
   .cards {
     list-style: none;
@@ -66,14 +58,6 @@ const { brainCards } = Astro.props;
   .cards::-webkit-scrollbar {
     display: none;
   }
-
-  /* .cards li {
-    display: inline-block;
-    margin-top: 200px;
-    margin-bottom: 400px;
-    width: 300px;
-    aspect-ratio: 1;
-  } */
 
   .cards {
     scroll-snap-type: x mandatory;
