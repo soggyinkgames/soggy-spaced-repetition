@@ -18,6 +18,15 @@ export default {
 					800: '#5b21b6',
 					900: '#2e1065',
 				},
+				screens: {
+					'xs': '280px',
+				},
+				margin: {
+					'auto-xs': 'auto', // Define margin auto for XS devices
+				},
+				spacing: {
+					'5-custom': '0px',
+				},
 			},
 		},
 	},
